@@ -1,0 +1,575 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    padding-top: 100px;
+    /* Adjust based on header height */
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background-color: #E0E0E0;
+    color: black;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo {
+    height: 80px;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+li>a {
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Active Link */
+li>a.active {
+    color: #ff9900;
+}
+
+li>a:hover {
+    color: #8d8a8a;
+}
+
+/*first container css*/
+.first-container {
+    display: flex;
+    background-color: #e0e0e031;
+    padding: 0px 150px 0px 150px;
+    align-items: center;
+}
+
+.left-info h1 {
+    padding-bottom: 30px;
+}
+
+.left-info p {
+    color: #1a1a1a;
+    text-align: justify;
+    letter-spacing: 1px;
+    word-spacing: 5px;
+    line-height: 1.4;
+}
+
+.right-img img {
+    position: relative;
+    animation: truckEntry 2s ease-out forwards;
+}
+
+@keyframes truckEntry {
+    0% {
+        transform: translateX(50vw);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.left-info {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: textAppear 2s ease-out forwards;
+}
+
+@keyframes textAppear {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Impacr Section (inbetween)*/
+.impact-section {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px 150px;
+    background-color: #E0E0E0;
+}
+
+.impact-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.impact-box h2 {
+    font-size: 30px;
+    color: #ff7a00;
+}
+
+.impact-box p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* second part (Image Container) */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 0px;
+    flex-wrap: wrap;
+}
+
+.image-box {
+    width: 270px;
+    height: 300px;
+    perspective: 1000px;
+}
+
+.flip-box {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.image-box:hover .flip-box {
+    transform: rotateY(180deg);
+}
+
+/* Front Side */
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* Back Side */
+.back {
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    /* Subtle dark gradient */
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    transform: rotateY(180deg);
+}
+
+.back h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #FFD700;
+    /* Gold for contrast */
+}
+
+.back h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ff9900;
+    /* Warm accent */
+}
+
+.back p {
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0.85;
+    color: white;
+}
+
+
+/*bottom section (key benfits)*/
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 30px;
+    background-color: #E0E0E0;
+    padding: 60px 20px;
+    border-radius: 15px;
+    position: relative;
+}
+
+.sec {
+    background: white;
+    width: 320px;
+    height: 250px;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    animation: scrollCards 20s linear infinite;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@keyframes scrollCards {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(-100vw);
+    }
+}
+
+.sec:hover {
+    transform: translateY(-12px) scale(1.05);
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+.sec h2 {
+    color: #ff7a00;
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.sec p {
+    color: black;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    word-spacing: 3px;
+    line-height: 1.6;
+}
+
+
+/*final part css*/
+.final {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 60px 5%;
+    border-radius: 15px;
+    gap: 50px;
+    background: #f9f9f9;
+    /* Light background for contrast */
+}
+
+.final-img img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+    /* Smooth transition for zoom and shadow */
+}
+
+.final-img img:hover {
+    transform: scale(1.03);
+    /* More subtle zoom */
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+    /* Soft glow effect */
+}
+
+
+.final-para {
+    max-width: 600px;
+    color: #333;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: justify;
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.final-para h2 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #ff7a00;
+    margin-bottom: 10px;
+}
+
+.final-para p {
+    color: black;
+    font-weight: 400;
+}
+
+.final-para:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/*footer (the end)*/
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 50px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    gap: 40px;
+    text-align: left;
+    align-items: flex-start;
+    /* Ensures all sections start from the top */
+}
+
+.footer-logo,
+.footer-links,
+.footer-contact,
+.footer-social {
+    flex: 1;
+    min-width: 220px;
+    max-width: 250px;
+}
+
+.footer-logo h2,
+.footer-links h3,
+.footer-contact h3,
+.footer-social h3 {
+    color: #ff9900;
+    margin-bottom: 10px;
+}
+
+.footer-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex-direction: column;
+    padding: 0;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.footer-links ul li {
+    display: inline-block;
+    width: auto;
+}
+
+.footer-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.footer-links ul li a:hover {
+    color: #ff9900;
+}
+
+.footer-contact p {
+    margin-bottom: 8px;
+}
+
+.footer-social p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-social .social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+.footer-social .social-icons a {
+    color: white;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+    color: #ff9900;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 30px;
+}
+
+
+
+/* Styling for the toggle buttons container */
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between buttons */
+    margin-bottom: 40px;
+}
+
+/* General button styling */
+.toggle-buttons button {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Active button styling */
+.toggle-buttons button.active {
+    background-color: #ff9900; /* Yellow background */
+    color: white; /* White text */
+}
+
+/* Inactive button styling */
+.toggle-buttons button:not(.active) {
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    border: 2px solid #ff9900; /* Border matching the brand color */
+}
+
+/* Hover effect for inactive buttons */
+.toggle-buttons button:not(.active):hover {
+    background-color: #ff9900; /* Yellow background on hover */
+    color: white; /* White text on hover */
+}
+
+/* Section styling */
+.section {
+    display: none; /* Hidden by default */
+}
+.section.active {
+    display: block; /* Visible when active */
+}
+
+/* Cards styling */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased gap between cards */
+    justify-content: center; /* Center-align cards */
+    margin: 20px 0; /* Add some vertical spacing */
+}
+
+.trip-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
+    padding: 25px; /* Increased padding */
+    width: 350px; /* Increased card width */
+    text-align: left;
+}
+
+.trip-card h3 {
+    font-size: 22px; /* Larger font size for headings */
+    margin-bottom: 20px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center-align heading */
+    gap: 10px; /* Space between icon and text */
+}
+
+.trip-card .details p {
+    margin: 10px 0;
+    font-size: 15px; /* Slightly larger font size for details */
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+}
+
+.trip-card .icon {
+    color: #ff9900; /* Icon color */
+}
+
+/* CTA Button Styling */
+.cta-button {
+    display: inline-block;
+    margin-top: 20px; /* Increased spacing above the button */
+    padding: 12px 20px; /* Increased padding for the button */
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px; /* Larger font size for the button */
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e68a00; /* Darker yellow on hover */
+}
+
+/* Definition Box Styling */
+.definition-box {
+    max-width: 1400px; /* Matches the theme's width */
+    margin: 0 auto 20px auto; /* Centers the box and adds space below */
+    padding: 20px; /* Inner spacing */
+    border-radius: 10px; /* Rounded corners */
+    background: #E0E0E0; /* White background */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow for depth */
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out; /* Smooth hover effects */
+}
+
+.definition-box:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.1); 
+}
+
+.definition-box h3 {
+    font-size: 26px; /* Larger heading size */
+    font-weight: 600; /* Bold weight */
+    color: #ff9000; /* Orange color for emphasis */
+    margin-bottom: 10px; /* Space between heading and paragraph */
+}
+
+.definition-box p {
+    font-size: 18px; /* Paragraph text size */
+    line-height: 1.7; /* Improved line spacing */
+    color: black; /* Black text for readability */
+    font-weight: 400; /* Normal weight */
+    text-align: justify; /* Justified text alignment */
+}
